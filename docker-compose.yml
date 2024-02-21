@@ -3,7 +3,7 @@ services:
   lieu-api:
     build: ./si-lieu-api
     ports:
-      - "8082:8080" # Remplacer <port_lieu_api> par le port désiré pour l'accès à Lieu API
+      - "8082:8080" # ReImplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
 
   commentaire-api:
     build:
@@ -34,3 +34,33 @@ services:
       context: https://github.com/Flintpop/si-client-vue.git
     ports:
       - "8080:80"
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+  mongodb:
+    image: mongo:4.8.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  mariadb-data:
+  mongodb-data:
+
+networks:
+  backend:
+
