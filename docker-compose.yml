@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  lieu-api:
+    build: ./si-lieu-api
+    ports:
+      - "8082:8080" # Remplacer <port_lieu_api> par le port désiré pour l'accès à Lieu API
+
+  commentaire-api:
+    build:
+      context: https://github.com/Flintpop/si-commentaire-api.git
+    ports:
+      - "8081:8080"
+
+  event-api:
+    build: 
+      context: https://github.com/Flintpop/si-event-api.git
+    ports:
+      - "8083:8080" # Remplacer <port_event_api> par le port désiré pour l'accès à Event API
+
+  membre-api:
+    build:
+      context: https://github.com/Flintpop/si-membre-api.git
+    ports:
+      - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
+
+  core-api:
+    build: 
+      context: https://github.com/Flintpop/si-core-api.git
+    ports:
+      - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
+
+  client-vue:
+    build:
+      context: https://github.com/Flintpop/si-client-vue.git
+    ports:
+      - "8080:80"
