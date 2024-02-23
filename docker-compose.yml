@@ -1,66 +1,63 @@
 version: '3.8'
 services:
-  lieu-api:
-    build: ./si-lieu-api
-    ports:
-      - "8082:8080" # ReImplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
+  # lieu-api:
+  #   build: ./si-lieu-api
+  #   ports:
+  #     - "8082:8080" # ReImplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
 
-  commentaire-api:
-    build:
-      context: https://github.com/Flintpop/si-commentaire-api.git
-    ports:
-      - "8081:8080"
+  # commentaire-api:
+  #   build:
+  #     context: https://github.com/Flintpop/si-commentaire-api.git
+  #   ports:
+  #     - "8081:8080"
 
-  event-api:
-    build: 
-      context: https://github.com/Flintpop/si-event-api.git
-    ports:
-      - "8083:8080" # Remplacer <port_event_api> par le port désiré pour l'accès à Event API
+  # event-api:
+  #   build: 
+  #     context: https://github.com/Flintpop/si-event-api.git
+  #   ports:
+  #     - "8083:8080" # Remplacer <port_event_api> par le port désiré pour l'accès à Event API
 
-  membre-api:
-    build:
-      context: https://github.com/Flintpop/si-membre-api.git
-    ports:
-      - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
+  # membre-api:
+  #   build:
+  #     context: https://github.com/Flintpop/si-membre-api.git
+  #   ports:
+  #     - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
 
-  core-api:
-    build: 
-      context: https://github.com/Flintpop/si-core-api.git
-    ports:
-      - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
+  # core-api:
+  #   build: 
+  #     context: https://github.com/Flintpop/si-core-api.git
+  #   ports:
+  #     - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
 
-  client-vue:
-    build:
-      context: https://github.com/Flintpop/si-client-vue.git
-    ports:
-      - "8080:80"
+  # client-vue:
+  #   build:
+  #     context: https://github.com/Flintpop/si-client-vue.git
+  #   ports:
+  #     - "8080:80"
 
   mariadb:
-    image: mariadb:latest
+    image: mariadb:11.3.2
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: UBOEventFlow_bdd
     ports:
       - "3306:3306"
     volumes:
+      - ./mariadb/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
       - mariadb-data:/var/lib/mysql
 
-  mongodb:
-    image: mongo:4.8.2
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongoadmin
-      MONGO_INITDB_ROOT_PASSWORD: mongopassword
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb-data:/data/db
+  # mongodb:
+  #   image: mongo:4.8.2
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: mongoadmin
+  #     MONGO_INITDB_ROOT_PASSWORD: mongopassword
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb-data:/data/db
 
 volumes:
   mariadb-data:
-  mongodb-data:
+  # mongodb-data:
 
-networks:
-  backend:
 
