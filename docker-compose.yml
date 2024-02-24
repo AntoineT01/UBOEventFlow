@@ -29,11 +29,13 @@ services:
   #   ports:
   #     - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
 
-  client-vue:
-    build:
-      context: https://github.com/abdelaziz-amil/si-uboEventFlow-client.git
+  vuejs-client:
+    build: 
+      context: ../si-client
     ports:
-      - "8080:80"
+      - "8080:8080"
+    # depends_on:
+    #   - si-membre-api
 
   mariadb:
     image: mariadb:11.3.2
@@ -46,6 +48,7 @@ services:
       - ./mariadb/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
       - mariadb-data:/var/lib/mysql
 
+
   # mongodb:
   #   image: mongo:4.8.2
   #   environment:
@@ -55,6 +58,9 @@ services:
   #     - "27017:27017"
   #   volumes:
   #     - mongodb-data:/data/db
+
+networks:
+  ubo-network:
 
 volumes:
   mariadb-data:
