@@ -18,10 +18,10 @@ services:
   #     - "8083:8080" # Remplacer <port_event_api> par le port désiré pour l'accès à Event API
 
   # membre-api:
-  #   build:
-  #     context: https://github.com/Flintpop/si-membre-api.git
-  #   ports:
-  #     - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
+    # build:
+    #   context: https://github.com/Flintpop/si-membre-api.git
+    # ports:
+    #   - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
 
   # core-api:
   #   build: 
@@ -29,11 +29,11 @@ services:
   #   ports:
   #     - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
 
-  # client-vue:
-  #   build:
-  #     context: https://github.com/Flintpop/si-client-vue.git
-  #   ports:
-  #     - "8080:80"
+  client-vue:
+    build:
+      context: https://github.com/abdelaziz-amil/si-uboEventFlow-client.git
+    ports:
+      - "8080:80"
 
   mariadb:
     image: mariadb:11.3.2
