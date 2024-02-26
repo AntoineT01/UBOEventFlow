@@ -30,7 +30,9 @@ docker-compose down
 
 # Lancez les services définis dans votre docker-compose.yml
 echo "Démarrage des conteneurs Docker..."
-docker-compose up -d
+docker-compose build
+
+docker-compose up&
 
 echo "Les conteneurs Docker ont été démarrés."
 # Affichez un lien pour accéder au client web
