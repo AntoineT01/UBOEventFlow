@@ -3,13 +3,15 @@ services:
   # lieu-api:
   #   build: ./si-lieu-api
   #   ports:
-  #     - "8082:8080" # ReImplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
+  #     - "8082:8080" # Remplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
 
-  # commentaire-api:
-  #   build:
-  #     context: https://github.com/Flintpop/si-commentaire-api.git
-  #   ports:
-  #     - "8081:8080"
+  commentaire-api:
+    build:
+      context: https://github.com/Flintpop/si-commentaire-api.git
+    ports:
+      - "8081:8080"
+    networks:
+      - ubo-network
 
   # event-api:
   #   build: 
@@ -31,9 +33,11 @@ services:
 
   vuejs-client:
     build: 
-      context: ../si-client
+      context: https://github.com/AntoineT01/si-client.git
     ports:
       - "8080:8080"
+    networks:
+      - ubo-network
     # depends_on:
     #   - si-membre-api
 
@@ -47,23 +51,23 @@ services:
     volumes:
       - ./mariadb/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
       - mariadb-data:/var/lib/mysql
+    networks:
+      - ubo-network
 
 
-  # mongodb:
-  #   image: mongo:4.8.2
-  #   environment:
-  #     MONGO_INITDB_ROOT_USERNAME: mongoadmin
-  #     MONGO_INITDB_ROOT_PASSWORD: mongopassword
-  #   ports:
-  #     - "27017:27017"
-  #   volumes:
-  #     - mongodb-data:/data/db
+  mongo:
+    build:
+      context:
+        ./dockerMongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - ubo-network
 
 networks:
   ubo-network:
+    driver: bridge
 
 volumes:
   mariadb-data:
   # mongodb-data:
-
-
