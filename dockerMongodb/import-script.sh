@@ -16,7 +16,6 @@ mongoimport --uri "mongodb://localhost:27017/commentaires" --collection commenta
 # immédiatement car cela arrêterait le conteneur. On laisse donc MongoDB tourner en foreground.
 # Ceci est un hack pour empêcher le script de terminer et le conteneur de s'arrêter.
 # Notez que mongod ne doit pas être lancé une seconde fois en foreground ici, car il tourne déjà.
-# Nous utilisons donc wait pour attendre éventuellement la fin de tous les processus lancés en background.
 while true; do
   sleep 1
 done
