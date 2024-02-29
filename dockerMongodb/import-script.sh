@@ -1,3 +1,6 @@
+# SI la BDD ne se lance pas correctement, il faut modifiier le 
+# Select end of line sequence to use: LF (Unix)
+
 #!/bin/bash
 # Démarrer MongoDB en arrière-plan
 mongod --fork --logpath /var/log/mongodb.log --bind_ip_all
