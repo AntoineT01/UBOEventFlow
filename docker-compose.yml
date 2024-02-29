@@ -1,9 +1,12 @@
 version: '3.8'
 services:
-  # lieu-api:
-  #   build: ./si-lieu-api
-  #   ports:
-  #     - "8082:8080" # Remplacer <port_lieu_api> par le port désiré pour l'accès à Lieu AP
+  lieu-api:
+    # build: ../si-lieu-api
+    build: https://github.com/Flintpop/si-lieu-api.git
+    ports:
+      - "8082:8080"
+    networks:
+      - ubo-network
 
   commentaire-api:
     build:
@@ -45,7 +48,7 @@ services:
     image: mariadb:11.3.2
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: UBOEventFlow_bdd
+      MYSQL_DATABASE: uboeventflow_bdd
     ports:
       - "3306:3306"
     volumes:
@@ -53,7 +56,6 @@ services:
       - mariadb-data:/var/lib/mysql
     networks:
       - ubo-network
-
 
   mongo:
     build:
