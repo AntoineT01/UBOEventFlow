@@ -251,10 +251,18 @@ INSERT INTO evenement (nom, titre, dateHeureDebut, dateHeureFin, description, li
 ('Conférence sur le climat', 'Défis Climatiques', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
 ('Atelier de programmation', 'Codez Ensemble', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
 
--- Insertion de données unifiées dans la table inscription
+-- Insertion de données unifiées dans la table inscription avec des scénarios variés
 INSERT INTO inscription (membreId, evenementId) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
+(1, 1), -- Jean Dupont s'inscrit à "Conférence sur le climat"
+(2, 2), -- Alice Martin s'inscrit à "Atelier de programmation"
+(3, 3), -- Marie Lebrun s'inscrit à "Séminaire sur l'innovation"
+(4, 4), -- Lucas Riviere s'inscrit à "Festival du Numérique"
+(5, 5), -- Sophie Petit s'inscrit à "Rencontre des Jeunes Entrepreneurs"
+
+-- Scénarios supplémentaires pour tester les contraintes
+(1, 3), -- Jean Dupont s'inscrit également au "Séminaire sur l'innovation"
+(2, 4), -- Alice Martin tente de s'inscrire au "Festival du Numérique", aussi
+(3, 5), -- Marie Lebrun tente de s'inscrire à "Rencontre des Jeunes Entrepreneurs"
+(4, 1), -- Lucas Riviere s'inscrit à "Conférence sur le climat"
+(5, 2); -- Sophie Petit s'inscrit à "Atelier de programmation"
+
