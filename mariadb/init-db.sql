@@ -31,7 +31,7 @@ CREATE TABLE evenement
     nom            VARCHAR(255) NOT NULL,
     dateHeureDebut DATETIME     NOT NULL,
     dateHeureFin   DATETIME     NOT NULL,
-    maxParticipant INT          NOT NULL,
+    description    TEXT         NOT NULL,
     lieuId         INT          NOT NULL,
     FOREIGN KEY (lieuId) REFERENCES lieu (id)
 );
@@ -47,10 +47,6 @@ CREATE TABLE inscription
     FOREIGN KEY (evenementId) REFERENCES evenement (id)
 
 );
-
-
-
-
 
 
 
@@ -248,9 +244,11 @@ INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALU
 ('Martin', 'Alice', '1992-07-23', '789 rue de Siam, 29200 Brest', 'alice.martin@email.com', 'motdepasse456');
 
 -- Insertion de données fictives dans la table evenement
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, maxParticipant, lieuId) VALUES
-('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 80, 1),
-('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 50, 2);
+
+INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
+('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
+('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
+
 
 -- Insertion de données fictives dans la table inscription
 INSERT INTO inscription (membreId, evenementId) VALUES
@@ -271,11 +269,15 @@ INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALU
 ('Riviere', 'Lucas', '1985-09-30', '27 avenue de la Liberté, 29200 Brest', 'lucas.riviere@email.com', 'password123'),
 ('Petit', 'Sophie', '1995-11-08', '9 rue de la Victoire, 29200 Brest', 'sophie.petit@email.com', 'passe123');
 
--- Insertion supplémentaire dans la table evenement
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, maxParticipant, lieuId) VALUES
-('Séminaire sur l\'innovation', '2024-05-25 10:00:00', '2024-05-25 16:00:00', 100, 3),
-('Festival du Numérique', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 200, 4),
-('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 150, 5);
+INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
+('Séminaire sur l''innovation', '2024-05-25 10:00:00', '2024-05-25 16:00:00', 'Un événement incontournable pour explorer les dernières tendances en matière d''innovation et de technologie. Des experts renommés partageront leur vision du futur.', 3),
+('Festival du Numérique', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
+('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5);
+
+INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, maxParticipant, lieuId) VALUES
+('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 80, 1),
+('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 50, 2);
+
 
 -- Insertion supplémentaire dans la table inscription
 INSERT INTO inscription (membreId, evenementId) VALUES
