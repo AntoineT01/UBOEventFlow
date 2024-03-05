@@ -154,7 +154,7 @@ DELIMITER ;
 
 -- Création de la procédure stockée pour s'incrire à un événement
 
---utilisation:
+-- utilisation:
 -- CALL Inscriremembre(1, 1);
 
 DELIMITER //
@@ -243,12 +243,6 @@ INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALU
 ('Dupont', 'Jean', '1980-04-12', '456 avenue de la République, 29200 Brest', 'jean.dupont@email.com', 'motdepasse123'),
 ('Martin', 'Alice', '1992-07-23', '789 rue de Siam, 29200 Brest', 'alice.martin@email.com', 'motdepasse456');
 
--- Insertion de données fictives dans la table evenement
-
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
-('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
-('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
-
 
 -- Insertion de données fictives dans la table inscription
 INSERT INTO inscription (membreId, evenementId) VALUES
@@ -274,9 +268,9 @@ INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) V
 ('Festival du Numérique', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
 ('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5);
 
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, maxParticipant, lieuId) VALUES
-('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 80, 1),
-('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 50, 2);
+INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
+('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
+('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
 
 
 -- Insertion supplémentaire dans la table inscription
