@@ -29,7 +29,6 @@ CREATE TABLE evenement
 (
     id             INT PRIMARY KEY AUTO_INCREMENT,
     nom            VARCHAR(255) NOT NULL,
-    description    VARCHAR(255)         NOT NULL,
     dateHeureDebut DATETIME     NOT NULL,
     dateHeureFin   DATETIME     NOT NULL,
     description    TEXT         NOT NULL,

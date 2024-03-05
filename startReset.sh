@@ -28,6 +28,9 @@ fi
 #fermeture des conteneurs Docker
 docker-compose down -v
 
+# Suppression explicite du volume mariadb-data
+docker volume rm mariadb-data
+
 # Vérifier si le réseau existe
 if ! docker network ls --format "{{.Name}}" | grep -w "^ubo-network$"; then
   # Créer le réseau si ce n'est pas le cas

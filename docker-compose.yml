@@ -37,7 +37,7 @@ services:
   vuejs-client:
     build: 
       # context: https://github.com/AntoineT01/si-client.git0
-      context: ../si-client
+      context: ./si-client
     ports:
       - "8080:8080"
     networks:
