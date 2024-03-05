@@ -24,17 +24,18 @@ CREATE TABLE membre
     UNIQUE (nom, prenom) -- S'assure qu'il n'y a pas deux membres avec le même nom et prénom
 );
 
--- Création de la table evenement
 CREATE TABLE evenement
 (
     id             INT PRIMARY KEY AUTO_INCREMENT,
     nom            VARCHAR(255) NOT NULL,
+    titre          VARCHAR(255) NOT NULL, 
     dateHeureDebut DATETIME     NOT NULL,
     dateHeureFin   DATETIME     NOT NULL,
     description    TEXT         NOT NULL,
     lieuId         INT          NOT NULL,
     FOREIGN KEY (lieuId) REFERENCES lieu (id)
 );
+
 
 -- Création de la table inscription
 CREATE TABLE inscription
@@ -226,59 +227,34 @@ END;
 //
 DELIMITER ;
 
-
-
-
-
-
-
-
--- Insertion de données fictives dans la table lieu
+-- Insertion de données unifiées dans la table lieu
 INSERT INTO lieu (nom, adresse, capaciteAccueil) VALUES
 ('Salle Polyvalente', '123 rue de Brest, 29200 Brest', 100),
-('Amphithéâtre K', '1 Avenue de la Plage, 29200 Brest', 200);
-
--- Insertion de données fictives dans la table membre
-INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALUES
-('Dupont', 'Jean', '1980-04-12', '456 avenue de la République, 29200 Brest', 'jean.dupont@email.com', 'motdepasse123'),
-('Martin', 'Alice', '1992-07-23', '789 rue de Siam, 29200 Brest', 'alice.martin@email.com', 'motdepasse456');
-
-
--- Insertion de données fictives dans la table inscription
-INSERT INTO inscription (membreId, evenementId) VALUES
-(1, 1),
-(2, 2);
-
-
-
--- Insertion supplémentaire dans la table lieu
-INSERT INTO lieu (nom, adresse, capaciteAccueil) VALUES
+('Amphithéâtre K', '1 Avenue de la Plage, 29200 Brest', 200),
 ('Auditorium Maxime', '10 rue des Navigateurs, 29200 Brest', 150),
 ('Espace Événementiel Horizon', '22 avenue du Ponant, 29200 Brest', 250),
 ('La Grande Halle', '5 boulevard des Explorateurs, 29200 Brest', 300);
 
--- Insertion supplémentaire dans la table membre
+-- Insertion de données unifiées dans la table membre
 INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALUES
 ('Lebrun', 'Marie', '1990-05-16', '33 rue du Commerce, 29200 Brest', 'marie.lebrun@email.com', 'motdepasse789'),
 ('Riviere', 'Lucas', '1985-09-30', '27 avenue de la Liberté, 29200 Brest', 'lucas.riviere@email.com', 'password123'),
-('Petit', 'Sophie', '1995-11-08', '9 rue de la Victoire, 29200 Brest', 'sophie.petit@email.com', 'passe123');
+('Petit', 'Sophie', '1995-11-08', '9 rue de la Victoire, 29200 Brest', 'sophie.petit@email.com', 'passe123'),
+('Dupont', 'Jean', '1980-04-12', '456 avenue de la République, 29200 Brest', 'jean.dupont@email.com', 'motdepasse123'),
+('Martin', 'Alice', '1992-07-23', '789 rue de Siam, 29200 Brest', 'alice.martin@email.com', 'motdepasse456');
 
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
-('Séminaire sur l''innovation', '2024-05-25 10:00:00', '2024-05-25 16:00:00', 'Un événement incontournable pour explorer les dernières tendances en matière d''innovation et de technologie. Des experts renommés partageront leur vision du futur.', 3),
-('Festival du Numérique', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
-('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5);
+-- Insertion de données unifiées dans la table evenement avec le nouveau champ titre
+INSERT INTO evenement (nom, titre, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
+('Séminaire sur l''innovation', 'Innovation 2024', '2024-05-25 10:00:00', '2024-05-25 16:00:00', 'Un événement incontournable pour explorer les dernières tendances en matière d''innovation et de technologie. Des experts renommés partageront leur vision du futur.', 3),
+('Festival du Numérique', 'Numérique pour tous', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
+('Rencontre des Jeunes Entrepreneurs', 'Entrepreneuriat Jeune', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5),
+('Conférence sur le climat', 'Défis Climatiques', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
+('Atelier de programmation', 'Codez Ensemble', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
 
-INSERT INTO evenement (nom, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
-('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
-('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
-
-
--- Insertion supplémentaire dans la table inscription
+-- Insertion de données unifiées dans la table inscription
 INSERT INTO inscription (membreId, evenementId) VALUES
+(1, 1),
+(2, 2),
 (3, 3),
 (4, 4),
-(5, 5),
-(1, 3), -- membre déjà existant s'inscrit à un nouvel événement
-(2, 4); -- membre déjà existant s'inscrit à un nouvel événement
-
-
+(5, 5);
