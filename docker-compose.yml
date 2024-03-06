@@ -16,17 +16,17 @@ services:
     networks:
       - ubo-network
 
-  # event-api:
-  #   build: 
-  #     context: https://github.com/Flintpop/si-event-api.git
-  #   ports:
-  #     - "8083:8080" # Remplacer <port_event_api> par le port désiré pour l'accès à Event API
+  event-api:
+    build: 
+      context: https://github.com/abdelaziz-amil/si-event-api.git
+    ports:
+      - "8083:8080" 
 
-  # membre-api:
-    # build:
-    #   context: https://github.com/Flintpop/si-membre-api.git
-    # ports:
-    #   - "8084:8080" # Remplacer <port_membre_api> par le port désiré pour l'accès à Membre API
+  membre-api:
+    build:
+      context: https://github.com/abdelaziz-amil/si-membre-api.git
+    ports:
+      - "8084:8080" 
 
   # core-api:
   #   build: 
