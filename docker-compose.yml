@@ -21,22 +21,28 @@ services:
       context: https://github.com/abdelaziz-amil/si-event-api.git
     ports:
       - "8083:8080" 
+    networks:
+      - ubo-network
 
   membre-api:
     build:
       context: https://github.com/abdelaziz-amil/si-membre-api.git
     ports:
       - "8084:8080" 
+    networks:
+      - ubo-network
 
-  # core-api:
-  #   build: 
-  #     context: https://github.com/Flintpop/si-core-api.git
-  #   ports:
-  #     - "8085:8080" # Remplacer <port_core_api> par le port désiré pour l'accès à Core API
+  core-api:
+    build: 
+      context: https://github.com/Flintpop/si-core-api.git
+    networks:
+      - ubo-network
+    ports:
+      - "8085:8080"
 
   vuejs-client:
     build: 
-      # context: https://github.com/AntoineT01/si-client.git0
+      # context: https://github.com/AntoineT01/si-client.git
       context: ./si-client
     ports:
       - "8080:8080"
