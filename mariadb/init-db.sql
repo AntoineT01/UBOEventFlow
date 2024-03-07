@@ -249,6 +249,7 @@ INSERT INTO evenement (titre, dateHeureDebut, dateHeureFin, description, lieuId)
 ('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5),
 ('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
 ('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
+('E3', '2024-04-20 14:00:00', '2024-04-20 16:30:00', 'Découvrez l''avenir du jeu vidéo au salon de l''E3, où l''innovation prend vie. Plongez dans une expérience unique, entre nouveautés technologiques et jeux révolutionnaires.', 1);
 
 -- Insertion de données unifiées dans la table inscription avec des scénarios variés
 INSERT INTO inscription (membreId, evenementId) VALUES
