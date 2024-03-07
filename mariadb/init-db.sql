@@ -228,7 +228,7 @@ DELIMITER ;
 
 -- Insertion de données unifiées dans la table lieu
 INSERT INTO lieu (nom, adresse, capaciteAccueil) VALUES
-('Salle Polyvalente', '123 rue de Brest, 29200 Brest', 100),
+('Salle Polyvalente', '123 Rue de Brest 29280 Plouzané', 100),
 ('Amphithéâtre K', '1 Avenue de la Plage, 29200 Brest', 200),
 ('Auditorium Maxime', '10 rue des Navigateurs, 29200 Brest', 150),
 ('Espace Événementiel Horizon', '22 avenue du Ponant, 29200 Brest', 250),
