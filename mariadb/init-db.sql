@@ -244,11 +244,11 @@ INSERT INTO membre (nom, prenom, dateNaissance, adresse, email, motDePasse) VALU
 
 -- Insertion de données unifiées dans la table evenement avec le nouveau champ titre
 INSERT INTO evenement (titre, dateHeureDebut, dateHeureFin, description, lieuId) VALUES
-('Séminaire sur l''innovation', '2024-05-25 10:00:00', '2024-05-25 16:00:00', 'Un événement incontournable pour explorer les dernières tendances en matière d''innovation et de technologie. Des experts renommés partageront leur vision du futur.', 3),
-('Festival du Numérique', '2024-06-10 09:00:00', '2024-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
-('Rencontre des Jeunes Entrepreneurs', '2024-07-05 09:00:00', '2024-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5),
-('Conférence sur le climat', '2024-03-15 09:00:00', '2024-03-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
-('Atelier de programmation', '2024-04-20 14:00:00', '2024-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
+('Séminaire sur l''innovation', '2025-05-25 10:00:00', '2025-05-25 16:00:00', 'Un événement incontournable pour explorer les dernières tendances en matière d''innovation et de technologie. Des experts renommés partageront leur vision du futur.', 3),
+('Festival du Numérique', '2025-06-10 09:00:00', '2025-06-12 18:00:00', 'Trois jours de découverte des nouvelles technologies, avec des ateliers, des conférences et des démonstrations pour tous les âges.', 4),
+('Rencontre des Jeunes Entrepreneurs', '2025-07-05 09:00:00', '2025-07-05 18:00:00', 'Une journée dynamique dédiée à l''échange entre jeunes entrepreneurs. Ateliers, pitchs et networking au programme.', 5),
+('Conférence sur le climat', '2025-05-15 09:00:00', '2025-05-15 12:00:00', 'Où en sommes-nous dans la course contre le climat ? Est-ce perdu, ou y a-t-il encore de l''espoir ? Une analyse approfondie des dernières recherches et des actions à entreprendre.', 1),
+('Atelier de programmation', '2025-04-20 14:00:00', '2025-04-20 17:00:00', 'Un atelier interactif pour les passionnés de codage. Peu importe votre niveau, venez coder avec nous et apprendre de nouvelles astuces en programmation.', 2);
 
 -- Insertion de données unifiées dans la table inscription avec des scénarios variés
 INSERT INTO inscription (membreId, evenementId) VALUES
